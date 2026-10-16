@@ -7,7 +7,7 @@ import com.hireai_ingestion_service.domain.repository.CompanyRepository;
 import com.hireai_ingestion_service.domain.repository.JobPostingRepository;
 import com.hireai_ingestion_service.dto.response.GitHubVerificationResult;
 import com.hireai_ingestion_service.exception.InvalidDocumentException;
-import com.hireai_ingestion_service.service.GitHubVerificationService;
+import com.hireai_ingestion_service.service.Github.GitHubVerificationService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;

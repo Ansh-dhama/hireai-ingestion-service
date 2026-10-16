@@ -1,4 +1,4 @@
-package com.hireai_ingestion_service.service;
+package com.hireai_ingestion_service.service.Github;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hireai_ingestion_service.dto.response.GitHubVerificationResult;

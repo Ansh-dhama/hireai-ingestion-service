@@ -48,7 +48,9 @@ public class CandidateApplicationController {
                 resumeFile,
                 consentGiven,
                 noticeVersion,
-                servletRequest.getRemoteAddr()
+                true,
+                null
+
         );
 
         CandidateApplyResponse response = ingestionService.processCandidateApplication(request);

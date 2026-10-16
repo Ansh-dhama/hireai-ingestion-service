@@ -7,5 +7,6 @@ public record CandidateApplyResponse(
         String fullName,
         String email,
         String status,
-        String message
-) {}
+        String message,
+        String extractionJobId,
+        String applicationAccessToken) {}
