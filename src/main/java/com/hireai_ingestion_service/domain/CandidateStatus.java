@@ -1,0 +1,16 @@
+package com.hireai_ingestion_service.domain;
+
+public enum CandidateStatus {
+  RECEIVED,
+  QUEUED,
+  EXTRACTING_CODE,
+  EXTRACTED,
+  EXTRACTION_RETRY,
+  EXTRACTION_FAILED,
+  WAITING_EVIDENCE,
+  PARSING_FAILED,
+  VERIFIED,
+  IN_ANALYSIS,
+  REJECTED,
+  SHORTLISTED
+}

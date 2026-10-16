@@ -62,6 +62,21 @@ public class Candidate {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    @Column(name = "consent_given_at", nullable = false)
+    private Instant consentGivenAt;
+
+    @Column(name = "consent_notice_version", nullable = false, length = 80)
+    private String consentNoticeVersion;
+
+    @Column(name = "evidence_consent_given", nullable = false)
+    private boolean evidenceConsentGiven;
+
+    public void recordConsent(String noticeVersion, boolean evidenceConsent) {
+        consentGivenAt = Instant.now();
+        consentNoticeVersion = noticeVersion;
+        evidenceConsentGiven = evidenceConsent;
+    }
+
     protected Candidate() {}
 
     public Candidate(JobPosting jobPosting, String fullName, String email,

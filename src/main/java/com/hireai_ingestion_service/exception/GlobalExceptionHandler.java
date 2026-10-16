@@ -1,5 +1,6 @@
 package com.hireai_ingestion_service.exception;
 
+import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -70,7 +71,15 @@ public class GlobalExceptionHandler {
         problem.setProperty("timestamp", Instant.now());
         return problem;
     }
-
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ProblemDetail handleConstraintViolation(ConstraintViolationException ex) {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST, ex.getMessage()); // Use ex.getMessage() for clean detail
+        problem.setTitle("Validation Failure"); // Title matches the 400 status
+        problem.setType(URI.create("https://hireai.internal/errors/validation-error"));
+        problem.setProperty("timestamp", Instant.now());
+        return problem;
+    }
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleUnhandled(Exception ex) {
         log.error("Unhandled internal exception caught at boundary", ex);
