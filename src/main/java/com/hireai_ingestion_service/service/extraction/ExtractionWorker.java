@@ -140,10 +140,11 @@ public class ExtractionWorker {
   @Scheduled(fixedDelay = 5000)
   public void recover() {
     if (!p.enabled() || closing) return;
+
     try {
       store.reconcile();
     } catch (RuntimeException e) {
-      log.warn("Extraction reconciliation will retry");
+      log.warn("Extraction reconciliation will retry", e);
     }
   }
 
